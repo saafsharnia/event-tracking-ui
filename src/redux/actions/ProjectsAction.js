@@ -18,13 +18,13 @@ class ProjectsAction {
             .then((response) => {
                 var i, j;
                 var data = response.data;
-                const dataLength = data.length();
+                const dataLength = data.length;
                 for (i = 1; i<dataLength; i++) {
                     for(j=0; j<i; j++)
                     {
                         const a = data[i];
                         const b = data[j];
-                        if (this._compare(a,b)) {
+                        if (this._compare(a.title,b.title)) {
                             data[j] = a;
                             data[i]= b;
                         }
