@@ -11,7 +11,6 @@ class EventsAction {
             .catch((err) => {
                 store.dispatch({type: 'EventsError'});
             });
-        this.sortEvents();
     }
 
     sortEvents() {
