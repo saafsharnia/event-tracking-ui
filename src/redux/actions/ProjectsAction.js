@@ -2,11 +2,12 @@ import store from '../store/store';
 import axios from 'axios';
 
 class ProjectsAction {
+
     getProjectsList() {
-        axios.get('./endpoints/projects.json')
+        axios.get('/endpoints/projects.json')
             .then((response) => {
-                store.dispatch({type: 'ProjectsList', data:response.data});
-                console.log('ProjectsResponse==',response);
+                console.log('ProjectsResponse before dispatch==',response);
+                store.dispatch({type: 'ProjectsList', data: response.data});
             })
             .catch((err) => {
                 store.dispatch({type: 'ProjectsError'});
@@ -14,7 +15,7 @@ class ProjectsAction {
     }
 
     sortProjects() {
-        axios.get('./endpoints/projects.json')
+        axios.get('/endpoints/projects.json')
             .then((response) => {
                 var i, j;
                 var data = response.data;
@@ -24,7 +25,7 @@ class ProjectsAction {
                     {
                         const a = data[i];
                         const b = data[j];
-                        if (this._compare(a.title,b.title)) {
+                        if (a.title < b.title) {
                             data[j] = a;
                             data[i]= b;
                         }
