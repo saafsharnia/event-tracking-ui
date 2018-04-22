@@ -1,4 +1,4 @@
-export default function EventReducer(state = {data:'' , error:''}, action) {
+export default function EventReducer(state = {data: '' , error: ''}, action) {
     switch (action.type) {
         case 'EventsList':
             return {
