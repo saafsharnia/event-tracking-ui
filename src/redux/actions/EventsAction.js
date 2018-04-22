@@ -10,7 +10,8 @@ class EventsAction {
             })
             .catch((err) => {
                 store.dispatch({type: 'EventsError'});
-            })
+            });
+        this.sortEvents();
     }
 
     sortEvents() {
@@ -29,9 +30,9 @@ class EventsAction {
                             data[i]= b;
                         }
                     }
-
-
                 }
+
+                console.log('data===', data);
             });
     }
 
