@@ -45,8 +45,7 @@
     "id":243,
     "title":"USort: Sorting list of users",
     "short_description":"We have multiple places on XING where we show lists of users sorted by there name. Often, our members would benefit if these lists would be sorted and contextualized according to the current demands of a member. Some examples: ",
-    "description":"We have multiple places on XING where we show lists of users sorted by there name. Often, our members would benefit if these lists would be sorted and contextualized according to the current demands of a member. Some examples: \r\n\r\n\r\n- When you do a friendship and your friend has less then 10 contacts, you are requested to provide some friend recommendations to your friend. Today, XING users often have to go through there list of contacts from A to Z to find some persons that they could recommend to their friend. Would people be more encouraged to to send recommendations if proper contacts are show at the top of the list? \r\n\r\n\r\n - When people visit events, they might be interested in browsing the participants of the event. It could help people a lot to have the participants sorted according to certain criteria.\r\n\r\n\r\nI could continue this list, but it seems enough to get the idea. Based on the sorting functionality, one could then also think about further applications. For example, given the friendship suggestion use case, one could provide functionaliy such as \"Do you think that Adam knows Bob, Claude and Mary? If so click, click here to send suggest Adam to connect with them
-    :-)\" so that suggestions could be sent with one click.\r\n\r\nIn order to respect the 20% effort / 80% value rule, cMYMK will be used to sort and later filter the results.\r\n\r\nFor this project, I/we will need your help so that we get at least one example running and ready for an A/B Testing.\r\n",
+    "description":"We have multiple places on XING where we show lists of users sorted by there name. Often, our members would benefit if these lists would be sorted and contextualized according to the current demands of a member. Some examples: \r\n\r\n\r\n- When you do a friendship and your friend has less then 10 contacts, you are requested to provide some friend recommendations to your friend. Today, XING users often have to go through there list of contacts from A to Z to find some persons that they could recommend to their friend. Would people be more encouraged to to send recommendations if proper contacts are show at the top of the list? \r\n\r\n\r\n - When people visit events, they might be interested in browsing the participants of the event. It could help people a lot to have the participants sorted according to certain criteria.\r\n\r\n\r\nI could continue this list, but it seems enough to get the idea. Based on the sorting functionality, one could then also think about further applications. For example, given the friendship suggestion use case, one could provide functionaliy such as \"Do you think that Adam knows Bob, Claude and Mary? If so click, click here to send suggest Adam to connect with them:-)\" so that suggestions could be sent with one click.\r\n\r\nIn order to respect the 20% effort / 80% value rule, cMYMK will be used to sort and later filter the results.\r\n\r\nFor this project, I/we will need your help so that we get at least one example running and ready for an A/B Testing.\r\n",
     "city":null,
     "event":{
       "id":13,
@@ -67,10 +66,7 @@
     "id":245,
     "title":"Vector Sprites",
     "short_description":"Vector Sprites",
-    "description":"Vector Sprites\r\n\r\nVector Sprites are automated. Just save
-    a SVG file and incorporate it with a single line of scss code.\r\n\r\nVector Sprites is an easy-to-use approach for combining thousands of Vector Shapes (110.000 according to latest Unicode Standard, 6.2.0 – at least 7.000 vector shapes) to a single file delivered to the client: a web font. This results in:\r\n\r\nA) Reduced File Size for Icon Set\r\nB) Ultimate flexibility regarding Screen Resolutions and desired dimensions\r\nC) Opportunities to play with :hover, :active,
-    :focus, :visited states, as well as opacity and text-shadow without affecting file sizes significantly\r\n\r\nfor detailed information, please see my private pet project (WIP)\r\nhttps://github.com/WanHalo/fungo\r\n\r\n\r\nWould be cool to have
-  a rails expert who can help providing this as a gem so the setup is super-easy.",
+    "description":"Vector Sprites\r\n\r\nVector Sprites are automated. Just savea SVG file and incorporate it with a single line of scss code.\r\n\r\nVector Sprites is an easy-to-use approach for combining thousands of Vector Shapes (110.000 according to latest Unicode Standard, 6.2.0 – at least 7.000 vector shapes) to a single file delivered to the client: a web font. This results in:\r\n\r\nA) Reduced File Size for Icon Set\r\nB) Ultimate flexibility regarding Screen Resolutions and desired dimensions\r\nC) Opportunities to play with :hover, :active,:focus, :visited states, as well as opacity and text-shadow without affecting file sizes significantly\r\n\r\nfor detailed information, please see my private pet project (WIP)\r\nhttps://github.com/WanHalo/fungo\r\n\r\n\r\nWould be cool to hava rails expert who can help providing this as a gem so the setup is super-easy.",
     "city":null,
     "event":{
       "id":13,
@@ -89,8 +85,7 @@
   {
     "id":246,
     "title":"Stats for Postings",
-    "short_description":"To make the Job Poster more satisfied we want to add
-    graphs to their postings.",
+    "short_description":"To make the Job Poster more satisfied we want to add graphs to their postings.",
     "description":"To make the Job Poster more satisfied we want to add graphs to their postings.\r\n\r\n",
     "city":null,
     "event":{

@@ -1,20 +1,128 @@
 import React, {Component} from 'react';
-import EventsAction from '../redux/actions/EventsAction';
+import eventsAction from '../redux/actions/EventsAction';
 import {connect} from 'react-redux';
+import ExpansionPanel, {ExpansionPanelDetails, ExpansionPanelSummary} from 'material-ui/ExpansionPanel';
+import Typography from 'material-ui/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Divider from 'material-ui/Divider';
+import Card, {CardHeader} from 'material-ui/Card';
+import Projects from './Projects';
+
+
 
 export default connect(state => ({
-    event : state.events
+    events : state.events,
     })
 )(class Events extends Component{
+    state = {
+        eventExpanded: false,
+    };
+
     componentDidMount() {
-        EventsAction.getEventsList();
+        eventsAction.getEventsList();
     }
 
     render() {
+        const events = this.props.events.data ? this.props.events.data : [];
+        console.log('this.props.events.data', this.props.events.data);
+        const styles = this._styles();
+        const expanded = this.state.eventExpanded;
         return(
-            <div>
-                Hello World
-            </div>
+            <Card style={styles.eventsListCard}>
+                <CardHeader title='Events' style={styles.eventListCardHeader} />
+                <div>
+                    {events.map(event => {
+                        const eventId = event.id;
+                        return (
+                            <div key={'eventDiv-'+ eventId}>
+                                <ExpansionPanel key={'eventTitle-'+ eventId}
+                                                expanded={expanded === eventId}
+                                                onChange={this._generateExpansionChange(eventId)}>
+                                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>
+                                        {event.title}
+                                    </Typography>
+                                    </ExpansionPanelSummary>
+                                    <ExpansionPanelDetails>
+                                        <Projects eventId={eventId}>
+                                        </Projects>
+                                        <Divider key={'eventDivider-'+ eventId}/>
+                                    </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            </div>
+                        );
+                    })}
+                </div>
+            </Card>
+
+        );
+    }
+
+    // _eventExpandIsOpen(){
+    //     this.setState({EventExpandIsOpen: true});
+    // }
+
+    // _generateExpansionChange(eventId) {
+    //     function expansionChange(event, expanded) {
+    //         this.setState({
+    //             expanded: expanded ? eventId : false,
+    //         });
+    //     }
+    //
+    //     return expansionChange;
+    // }
+
+    _generateExpansionChange(eventId) {
+        return (event, expanded) => {
+            this.setState({
+                eventExpanded: expanded ? eventId : false,
+            });
+        }
+   }
+
+    // _checkProjectsEventId(eventId) {
+    //     const projectList = this.props.projects.data;
+    //     const projectListLength = projectList.length;
+    //     var eventExpandIsOpen = false;
+    //     var eventExpandId = 0;
+    //     console.log('projectList in EventComponent====', projectList);
+    //     console.log('projectList[0].event in EventComponent====', projectList[0].event);
+    //     projectList.map( project => {
+    //         const projectEventId = project.event.id;
+    //         if (projectEventId === eventId) {
+    //             eventExpandIsOpen = true;
+    //             eventId = projectEventId;
+    //
+    //         }
+    //         else {
+    //             eventExpandIsOpen = false;
+    //
+    //             this.setState({
+    //                 eventExpandId: eventExpandId,
+    //                 eventExpandIsOpen: eventExpandIsOpen
+    //             });
+    //         }
+    //     }
+    //
+    //     )
+    // }
+
+
+    _styles () {
+        return(
+            {
+                eventsListCard: {
+                    width: '50%',
+                    marginTop: '5%',
+                    marginLeft: '25%',
+                },
+
+                eventListCardHeader: {
+                    width: 0,
+                    marginLeft: '40%'
+                }
+            }
+
         );
     }
 

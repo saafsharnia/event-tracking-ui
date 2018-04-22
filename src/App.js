@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import Events from './components/Events';
-import Projects from './components/Projects';
 
 
 export default class App extends Component {
@@ -11,7 +10,7 @@ export default class App extends Component {
         <MuiThemeProvider>
             <div>
                 <Events/>
-                <Projects/>
+                {/*<Projects/>*/}
             </div>
         </MuiThemeProvider>
     );
