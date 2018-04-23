@@ -7,13 +7,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from 'material-ui/Divider';
 import Card, {CardHeader} from 'material-ui/Card';
 import Projects from './Projects';
-
-
+import IconButton from 'material-ui/IconButton';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import Tooltip from 'material-ui/Tooltip';
 
 export default connect(state => ({
     events : state.events,
-    })
-)(class Events extends Component{
+}))(class Events extends Component{
     state = {
         eventExpanded: false,
     };
@@ -24,12 +24,18 @@ export default connect(state => ({
 
     render() {
         const events = this.props.events.data ? this.props.events.data : [];
-        console.log('this.props.events.data', this.props.events.data);
         const styles = this._styles();
         const expanded = this.state.eventExpanded;
         return(
             <Card style={styles.eventsListCard}>
-                <CardHeader title='Events' style={styles.eventListCardHeader} />
+                <CardHeader title='Events' style={styles.eventListCardHeader}
+                            action={
+                                <Tooltip title="sort list">
+                                    <IconButton onClick={this._sortEvents.bind(this)}>
+                                        <ArrowDownward />
+                                    </IconButton>
+                                </Tooltip>
+                            }/>
                 <div>
                     {events.map(event => {
                         const eventId = event.id;
@@ -39,14 +45,13 @@ export default connect(state => ({
                                                 expanded={expanded === eventId}
                                                 onChange={this._generateExpansionChange(eventId)}>
                                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                    <Typography>
-                                        {event.title}
-                                    </Typography>
+                                        <Typography>
+                                            {event.title}
+                                        </Typography>
                                     </ExpansionPanelSummary>
                                     <ExpansionPanelDetails>
-                                        <Projects eventId={eventId}>
-                                        </Projects>
-                                        <Divider key={'eventDivider-'+ eventId}/>
+                                        <Projects eventId={eventId} />
+                                        <Divider key={'eventDivider-'+ eventId} />
                                     </ExpansionPanelDetails>
                                 </ExpansionPanel>
                             </div>
@@ -80,51 +85,23 @@ export default connect(state => ({
         }
    }
 
-    // _checkProjectsEventId(eventId) {
-    //     const projectList = this.props.projects.data;
-    //     const projectListLength = projectList.length;
-    //     var eventExpandIsOpen = false;
-    //     var eventExpandId = 0;
-    //     console.log('projectList in EventComponent====', projectList);
-    //     console.log('projectList[0].event in EventComponent====', projectList[0].event);
-    //     projectList.map( project => {
-    //         const projectEventId = project.event.id;
-    //         if (projectEventId === eventId) {
-    //             eventExpandIsOpen = true;
-    //             eventId = projectEventId;
-    //
-    //         }
-    //         else {
-    //             eventExpandIsOpen = false;
-    //
-    //             this.setState({
-    //                 eventExpandId: eventExpandId,
-    //                 eventExpandIsOpen: eventExpandIsOpen
-    //             });
-    //         }
-    //     }
-    //
-    //     )
-    // }
+   _sortEvents() {
+        eventsAction.sortEvents();
+   }
 
 
     _styles () {
-        return(
-            {
-                eventsListCard: {
-                    width: '50%',
-                    marginTop: '5%',
-                    marginLeft: '25%',
-                },
-
-                eventListCardHeader: {
-                    width: 0,
-                    marginLeft: '40%'
-                }
+        return({
+            eventsListCard: {
+                width: '50%',
+                marginTop: '5%',
+                marginLeft: '25%',
+            },
+            eventListCardHeader: {
+                width: '80%',
+                marginLeft: '5%'
             }
-
-        );
+        });
     }
-
 });
 

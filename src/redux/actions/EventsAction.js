@@ -32,17 +32,8 @@ class EventsAction {
                 }
 
                 console.log('data===', data);
+                store.dispatch({type:'EventsList', data: data});
             });
-    }
-
-    _compare(a,b) {
-        if (a < b) {
-            return true;
-        }
-        else {
-            return false;
-        }
-
     }
 }
 

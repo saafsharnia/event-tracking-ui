@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './App.css';
 import Events from './components/Events';
+import ProjectDeatails from './components/ProjectDetails';
 
-
-export default class App extends Component {
+export default connect(state => ({
+    projectDetails: state.projectDetails
+}))(class App extends Component {
   render() {
     return (
         <MuiThemeProvider>
             <div>
-                <Events/>
-                {/*<Projects/>*/}
+
+                {this.props.projectDetails.data ?
+                    <ProjectDeatails/>
+                       :
+                    <Events/>}
             </div>
         </MuiThemeProvider>
     );
   }
-};
+});

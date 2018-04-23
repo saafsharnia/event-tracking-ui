@@ -6,7 +6,6 @@ class ProjectsAction {
     getProjectsList() {
         axios.get('/endpoints/projects.json')
             .then((response) => {
-                console.log('ProjectsResponse before dispatch==',response);
                 store.dispatch({type: 'ProjectsList', data: response.data});
             })
             .catch((err) => {
@@ -34,16 +33,6 @@ class ProjectsAction {
 
                 }
             })
-    }
-
-    _compare(a,b) {
-        if (a < b) {
-            return true;
-        }
-        else {
-            return false;
-        }
-
     }
 }
 
