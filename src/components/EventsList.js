@@ -62,28 +62,6 @@ export default connect(state => ({
         );
     }
 
-    // _eventExpandIsOpen(){
-    //     this.setState({EventExpandIsOpen: true});
-    // }
-
-    // _generateExpansionChange(eventId) {
-    //     function expansionChange(event, expanded) {
-    //         this.setState({
-    //             expanded: expanded ? eventId : false,
-    //         });
-    //     }
-    //
-    //     return expansionChange;
-    // }
-
-    _generateExpansionChange(eventId) {
-        return (event, expanded) => {
-            this.setState({
-                eventExpanded: expanded ? eventId : false,
-            });
-        }
-   }
-
    _sortEvents() {
         if(this.state.wishSort === 'Ascending sort')
         {
