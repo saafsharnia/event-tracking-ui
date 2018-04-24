@@ -22,7 +22,7 @@
   },
   {
     "id":242,
-    "title":"Main Taskbar Usability Optimization",
+    "title":"Main Taskbar Usability Optline-heightimization",
     "short_description":"This project aims to optimize the Usability of our current XING-Main Taskbars through coherent simplification and fixation, so that all products are easy recognizable \u0026 always available. ",
     "description":"This project aims to optimize the Usability of our current XING-Main Taskbars through coherent simplification and fixation, so that all products are easy recognizable \u0026 always available. \r\nThe current situation: You have a duplication of products taskbuttons, one on the left side (notification bar) and the second Main Taskbar at the top:\r\n-\tSome products are not available at the Notification Bar (Topics, Projects)\r\n-\tSome are not available at the Main taskbar (Contacts, Inbox)\r\n-\tSome Main products are only situated at the Startpage Subtaskbar (Contacts, Inbox) \r\n-\tProduct Search is not fixed, it disappears if you scroll down (all other social platforms have fixed Searchproduct)\r\nThis is confusing and not transparent for the User. Since X4 Users are claiming about the Usability of the platform. \r\n\r\nMy proposal: Either one Main Vertical Taskbar or one Main Horizontal Taskbar. \r\n\r\nAfter analyzing our platform, analyzing what the competition does (LinkedIn, Facebook, Google+), I already designed two Versions:\r\n\r\nVersion A): Fixed Vertical Taskbar with fixed Search on top – Subcategories directly at the top of each each product-home-page (nice for mobile format) \r\nVersion B): Fixed Horizontal Taskbar with fixed Search on top – Subcategories on Left side \r\n\r\n\r\n\r\nIn my opinion the success of our current strategy is also very related with this usability optimization, as it is very important that users realizes very fast which products do we offer and have easy access to them. \r\n\r\nI know how complex it is to build a cross-functional product like that, but the innoweek is the right place to create two dummy versions to first see how it could work. \r\n\r\nI invite you to help me create and improve this challenge! \r\n\r\nWe have a wonderful platform. Let's rock it or better to say make it more usabilibeautiful!\r\n\r\nBest regards, \r\n\r\nHoracio \r\n",
     "city":null,
@@ -34,7 +34,7 @@
     "talk":true,
     "order":1,
     "category":null,
-    "image":"https://media.giphy.com/media/11c7UUfN4eoHF6/giphy.gif",
+    "image":"https://i.giphy.com/media/11c7UUfN4eoHF6/giphy.webp",
     "user":{
       "username":"horacio.ccitandov",
       "name":"Horacio Ccitandov",
@@ -70,12 +70,13 @@
     "city":null,
     "event":{
       "id":13,
-      "title":"Prototyping Days #1", "calendar_week":201912, "created_at":"2018-02-18T09:56:20.000Z", "updated_at":"2018-02-18T09:56:20.000Z",
+      "title":"Prototyping Days #1",
+      "calendar_week":201912, "created_at":"2018-02-18T09:56:20.000Z", "updated_at":"2018-02-18T09:56:20.000Z",
       "project_deadline":null
     },
     "talk":true,
     "order":1, "category":null,
-    "image":"https://media.giphy.com/media/OmK8lulOMQ9XO/giphy.gif",
+    "image":"https://i.giphy.com/media/OmK8lulOMQ9XO/giphy.webp",
     "user":{
       "username":"jaben.reusse",
       "name":"Jaben Reusse",
@@ -97,7 +98,7 @@
     "talk":true,
     "order":1,
     "category":null,
-    "image":"https://media.giphy.com/media/NqZn5kPN8VVrW/giphy.gif",
+    "image":"https://i.giphy.com/media/NqZn5kPN8VVrW/giphy.webp",
     "user":{
       "username":"martish.tuch",
       "name":"Martish Tuch",
