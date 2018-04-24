@@ -10,6 +10,7 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import Snackbar from 'material-ui/Snackbar';
 import IconButton from 'material-ui/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import ProjectDetailsAction from '../redux/actions/ProjectDetailsAction'
 
 export default connect( state => ({
     projectDetails: state.projectDetails
@@ -58,10 +59,16 @@ export default connect( state => ({
                               Comment
                           </Button>
                       </CardActions>
+                      <Button size="small" color="secondary" variant="raised"
+                              onClick={this._onBackClick.bind(this)}
+                              style={styles.backButton}>
+                          Back
+                      </Button>
                   </Card>
                   <Snackbar
                       open={this.state.commentSnackbar}
-                      message={<span id="message-id">Comment sent</span>}                      action="undo"
+                      message={<span id="message-id">Comment sent</span>}
+                      action="undo"
                       anchorOrigin={{
                           vertical: 'bottom',
                           horizontal: 'left',
@@ -97,6 +104,10 @@ export default connect( state => ({
             this.setState({commentSnackbar: true});
         }
 
+        _onBackClick() {
+            ProjectDetailsAction.discardDetails();
+        }
+
         __onSnackbarClose() {
             this.setState({commentSnackbar: false});
         }
@@ -106,7 +117,8 @@ export default connect( state => ({
                 card: {
                     width: window.screen.width > 600 ? '70%' : '100%',
                     marginLeft: window.screen.width > 600 ? '15%' : 0,
-                    marginTop: window.screen.width > 600 ? '1%' : 0
+                    marginTop: window.screen.width > 600 ? '1%' : 0,
+                    marginBottom: window.screen.width > 600 ? '1%' : 0
                 },
                 image: {
                     height: 450,
@@ -124,6 +136,10 @@ export default connect( state => ({
                 },
                 likeButton: {
                     color: this.state.like ? '#2196f3' : 'gray'
+                },
+                backButton: {
+                  marginBottom: '5px',
+                  marginLeft: '10px'
                 },
                 snackbar: {
                     width: 300

@@ -10,6 +10,11 @@ export default function ProjectDetailsReducer(state = {data: null}, action) {
                 ...state,
                 data: false
             };
+        case 'discardProject':
+            return {
+                ...state,
+                data: null
+            };
         default :
             return state;
     }
