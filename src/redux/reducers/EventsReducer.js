@@ -11,7 +11,6 @@ export default function EventReducer(state = {data: '' ,currentEvent:'', error: 
                 error: action.data + 'Somethings went wrong. Try again later'
             };
         case  'CurrentEvent':
-            console.log('current event in action', action.data);
             return{
                 ...state,
                 currentEvent: action.data

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Card, {CardHeader} from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Tooltip from 'material-ui/Tooltip';
 import Event from './Event'
 
@@ -12,7 +13,8 @@ export default connect(state => ({
 }))(class EventsList extends Component{
     state = {
         eventExpanded: false,
-        currentEvent: false
+        currentEvent: false,
+        wishSort: 'Ascending sort'
     };
 
     componentDidMount() {
@@ -29,9 +31,14 @@ export default connect(state => ({
             <Card style={styles.eventsListCard}>
                 <CardHeader title='Events' style={styles.eventListCardHeader}
                             action={
-                                <Tooltip title="sort list">
+                                <Tooltip title={this.state.wishSort}>
                                     <IconButton onClick={this._sortEvents.bind(this)}>
-                                        <ArrowDownward />
+                                        {
+                                            this.state.wishSort == 'Ascending sort' ?
+                                                <ArrowDownward />
+                                                :
+                                                <ArrowUpward/>
+                                        }
                                     </IconButton>
                                 </Tooltip>
                             }/>
@@ -43,7 +50,10 @@ export default connect(state => ({
                             currentEvent = true;
                         }
                         return (
-                            <Event event={event} currentEvent={eventId===currentEventId}/>
+                            <Event
+                                key={'Event'+eventId}
+                                event={event}
+                                currentEvent={eventId===currentEventId}/>
                         );
                     })}
                 </div>
@@ -75,16 +85,25 @@ export default connect(state => ({
    }
 
    _sortEvents() {
-        eventsAction.sortEvents();
+        if(this.state.wishSort === 'Ascending sort')
+        {
+            eventsAction.sortEvents('Ascending sort');
+            this.setState({wishSort: 'Descending sort'});
+        }
+        else {
+            eventsAction.sortEvents('Descending sort');
+            this.setState({wishSort: 'Ascending sort'});
+        }
+
    }
 
 
     _styles () {
         return({
             eventsListCard: {
-                width: '50%',
-                marginTop: '5%',
-                marginLeft: '25%',
+                width: window.screen.width > 600 ? '50%' : '100%',
+                marginTop: window.screen.width > 600 ? '5%' : 0,
+                marginLeft: window.screen.width > 600 ? '25%' : 0,
             },
             eventListCardHeader: {
                 width: '80%',

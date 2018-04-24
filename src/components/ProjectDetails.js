@@ -104,9 +104,9 @@ export default connect( state => ({
         _style() {
             return {
                 card: {
-                    width: '70%',
-                    marginLeft: '15%',
-                    marginTop:'1%'
+                    width: window.screen.width > 600 ? '70%' : '100%',
+                    marginLeft: window.screen.width > 600 ? '15%' : 0,
+                    marginTop: window.screen.width > 600 ? '1%' : 0
                 },
                 image: {
                     height: 450,

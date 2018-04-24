@@ -13,7 +13,7 @@ class EventsAction {
             });
     }
 
-    sortEvents() {
+    sortEvents(sort) {
         axios.get('/endpoints/events.json')
             .then((response) => {
                 var i, j;
@@ -24,10 +24,19 @@ class EventsAction {
                     {
                         const a = data[i];
                         const b = data[j];
-                        if (a.title < b.title) {
-                            data[j] = a;
-                            data[i]= b;
+                        if(sort === 'Descending sort') {
+                            if (a.title < b.title) {
+                                data[j] = a;
+                                data[i]= b;
+                            }
                         }
+                        else {
+                            if (a.title > b.title) {
+                                data[j] = a;
+                                data[i]= b;
+                            }
+                        }
+
                     }
                 }
 

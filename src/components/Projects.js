@@ -4,6 +4,7 @@ import projectDetailsAction from '../redux/actions/ProjectDetailsAction';
 import {connect} from 'react-redux';
 import IconButton from 'material-ui/IconButton';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Tooltip from 'material-ui/Tooltip';
 import ExpansionPanel, {ExpansionPanelDetails, ExpansionPanelSummary, ExpansionPanelActions} from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
@@ -19,6 +20,7 @@ export default connect(state => ({
     state = {
         projectsByEventId : [],
         projectExpanded: false,
+        wishSort: 'ascending'
 
     };
     componentDidMount() {
@@ -36,7 +38,12 @@ export default connect(state => ({
                         <div>
                             <Tooltip title="sort list">
                                 <IconButton onClick={this._sortProjects.bind(this)}>
-                                    <ArrowUpward />
+                                    {
+                                        this.state.wishSort == 'Ascending sort' ?
+                                            <ArrowDownward />
+                                            :
+                                            <ArrowUpward/>
+                                    }
                                 </IconButton>
                             </Tooltip>
                             {projectsByEventId.map( project => {
@@ -101,7 +108,15 @@ export default connect(state => ({
     }
 
     _sortProjects() {
-        projectsAction.sortProjects();
+        if(this.state.wishSort === 'Ascending sort')
+        {
+            projectsAction.sortProjects('Ascending sort');
+            this.setState({wishSort: 'Descending sort'});
+        }
+        else {
+            projectsAction.sortProjects('Descending sort');
+            this.setState({wishSort: 'Ascending sort'});
+        }
     }
 
 
