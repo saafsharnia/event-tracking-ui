@@ -18,13 +18,14 @@ class ProjectsAction {
             .then((response) => {
                 var i, j;
                 var data = response.data;
+                console.log('data in projectAction', data);
                 const dataLength = data.length;
                 for (i = 1; i<dataLength; i++) {
                     for(j=0; j<i; j++)
                     {
                         const a = data[i];
                         const b = data[j];
-                        if (a.title < b.title) {
+                        if (a.title > b.title) {
                             data[j] = a;
                             data[i]= b;
                         }
@@ -32,7 +33,8 @@ class ProjectsAction {
 
 
                 }
-            })
+                store.dispatch({type:'ProjectsList', data: data});
+            });
     }
 }
 

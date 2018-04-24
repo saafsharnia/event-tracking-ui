@@ -9,7 +9,7 @@ class EventsAction {
                 store.dispatch({type: 'EventsList', data: response.data});
             })
             .catch((err) => {
-                store.dispatch({type: 'EventsError'});
+                store.dispatch({type: 'EventsError', data:err});
             });
     }
 
@@ -34,6 +34,18 @@ class EventsAction {
                 console.log('data===', data);
                 store.dispatch({type:'EventsList', data: data});
             });
+    }
+
+    getCurrentEvent() {
+        axios.get('/endpoints/events/current_event.json')
+        .then((response) => {
+            store.dispatch({type:'CurrentEvent', data:response.data});
+            }
+
+        )
+        .catch((err) => {
+            store.dispatch({type: 'EventsError', data:err});
+        });
     }
 }
 

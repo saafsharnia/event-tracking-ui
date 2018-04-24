@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Events from './components/Events';
+import Events from './components/EventsList';
 import ProjectDeatails from './components/ProjectDetails';
 
 export default connect(state => ({

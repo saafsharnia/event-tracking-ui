@@ -52,7 +52,6 @@ export default connect( state => ({
                           </BottomNavigation>
                       </CardContent>
                       <CardActions>
-
                           <textarea rows="6" cols="65" style={{float:'left'}}>
                           </textarea>
                           <Button size="small" color="primary" variant="raised" onClick={this._onCommentClick.bind(this)}>

@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import projectsAction from '../redux/actions/ProjectsAction';
 import projectDetailsAction from '../redux/actions/ProjectDetailsAction';
 import {connect} from 'react-redux';
+import IconButton from 'material-ui/IconButton';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import Tooltip from 'material-ui/Tooltip';
 import ExpansionPanel, {ExpansionPanelDetails, ExpansionPanelSummary, ExpansionPanelActions} from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from 'material-ui/Button';
+import eventsAction from "../redux/actions/EventsAction";
 
 export default connect(state => ({
         projects : state.projects
@@ -30,6 +34,11 @@ export default connect(state => ({
                 {
                     projectsByEventId.length > 0 ?
                         <div>
+                            <Tooltip title="sort list">
+                                <IconButton onClick={this._sortProjects.bind(this)}>
+                                    <ArrowUpward />
+                                </IconButton>
+                            </Tooltip>
                             {projectsByEventId.map( project => {
                                 const projectId = project.id;
                                 return(
@@ -62,6 +71,7 @@ export default connect(state => ({
                          </div>
                         :
                         <div>
+                            No Project In this event
                         </div>
                 }
             </div>
@@ -89,6 +99,11 @@ export default connect(state => ({
             });
         }
     }
+
+    _sortProjects() {
+        projectsAction.sortProjects();
+    }
+
 
     _onProjectClick(project) {
         return () => {
